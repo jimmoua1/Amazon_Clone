@@ -12,6 +12,14 @@
   z-index: 1;
 }
 
+/* Align the rating star */
+.product__rating{
+  display: flex;
+}
+
+/* Make product prioritize these code over the image product
+  same for code below this one for button
+*/
 .product > img {
   max-height: 200px;
   width: 100%;
@@ -28,7 +36,7 @@
   color: #111;
 }
 
-.product_price {
+.product__price {
   margin-top: 5px;
 }
 
