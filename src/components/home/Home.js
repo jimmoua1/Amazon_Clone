@@ -32,7 +32,7 @@ function Home() {
         <div className="home__row">
           <Product
             id="4903220"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
+            title="Fitbit Charge 4 Fitness and Activity Tracker with Built-in GPS, Heart Rate, Sleep & Swim Tracking, One Size (S & L Bands Included) (Black)"
             price={199.99}
             rating={3}
             image="https://i.imgur.com/ncLBzLR.jpg"
