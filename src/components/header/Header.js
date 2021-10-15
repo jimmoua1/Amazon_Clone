@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useStateValue } from "../../state/StateProvider";
 
 function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   return (
     <div className="header">
@@ -28,7 +28,7 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link>
+        <Link to={!user && '/login'}>
           <div className="header__option">
            <span className="header__optionLineOne">Hello Guest</span>
             <span className="header__optionLineTwo">Sign In</span>

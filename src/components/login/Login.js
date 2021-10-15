@@ -1,18 +1,38 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import "./Login.css"
+import { auth } from "../../firebase"
+
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const signIn = e => {
     // when submitting  no refreshing
     e.preventDefault()
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(auth => {
+        history.push('/')
+      })
+      .catch(error => alert(error.message))
   }
 
   const register = e => {
     e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        // once successfully authenthicate login and go to Amazon Home Page
+        if (auth) {
+          history.push('/')
+        }
+      })
+      .catch(error => alert(error.message))
   }
 
   return (
@@ -38,7 +58,7 @@ function Login() {
             see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
           </p>
 
-          <button className="login__registerButton">Create your Amazon Account</button>
+          <button onClick={register} className="login__registerButton">Create your Amazon Account</button>
         </form>
       </div>
     </div>
